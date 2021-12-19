@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
 - https://github.com/galshi/openshift-4-compliance-automation.git//open-policy-agent?ref=add_labels_to_policies
-
+- gatekeeper.yaml
