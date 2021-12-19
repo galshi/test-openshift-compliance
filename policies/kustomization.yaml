@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- https://github.com/galshi/openshift-4-compliance-automation.git//open-policy-agent?ref=add_labels_to_policies
+
+patchesJson6902:
+- target:
+    name: .*
+    kind: ConstraintTemplate
+    version: v1beta1
+  patch: |-
+    - op: add
+      path: /metadata/annotations
+      value:
+        argocd.argoproj.io/sync-wave: "-1"
